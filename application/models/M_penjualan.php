@@ -25,10 +25,10 @@ class M_penjualan extends CI_Model{
 				'd_jual_barang_id'		=>	$item['id'],
 				'd_jual_barang_nama'	=>	$item['name'],
 				'd_jual_barang_satuan'	=>	$item['satuan'],
-				'd_jual_barang_harpok'	=>	$item['harpok'],
-				'd_jual_barang_harjul'	=>	$item['amount'],
+				'd_jual_barang_harpok'	=>	0,
+				'd_jual_barang_harjul'	=>	$item['price'],
 				'd_jual_qty'			=>	$item['qty'],
-				'd_jual_diskon'			=>	$item['disc'],
+				'd_jual_diskon'			=>	0,
 				'd_jual_total'			=>	$item['subtotal']
 			);
 			$this->db->insert('tbl_detail_jual',$data);

@@ -37,11 +37,9 @@ class Penjualan extends CI_Controller{
                'id'       => $i['barang_id'],
                'name'     => $i['barang_nama'],
                'satuan'   => $i['barang_satuan'],
-               'harpok'   => $i['barang_harpok'],
-               'price'    => str_replace(",", "", $this->input->post('harjul'))-$this->input->post('diskon'),
-               'disc'     => $this->input->post('diskon'),
-               'qty'      => $this->input->post('qty'),
-               'amount'	  => str_replace(",", "", $this->input->post('harjul'))
+               'tenant'   => $this->input->post('tenant'),
+               'price'	  => str_replace(",", "", $this->input->post('harjul')),
+               'qty'      => $this->input->post('qty')
             );
 	if(!empty($this->cart->total_items())){
 		foreach ($this->cart->contents() as $items){
@@ -63,7 +61,7 @@ class Penjualan extends CI_Controller{
 	}else{
 		$this->cart->insert($data);
 	}
-
+	
 		redirect('admin/penjualan');
 	}else{
         echo "Halaman tidak ditemukan";
