@@ -14,6 +14,7 @@ class Penjualan extends CI_Controller{
 	function index(){
 	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$data['data']=$this->m_barang->tampil_barang();
+		$data['tenant']=$this->m_kategori->tampil_kategori();
 		$this->load->view('admin/v_penjualan',$data);
 	}else{
         echo "Halaman tidak ditemukan";
@@ -32,12 +33,14 @@ class Penjualan extends CI_Controller{
 	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kobar=$this->input->post('kode_brg');
 		$produk=$this->m_barang->get_barang($kobar);
+		$nama_tenant = $this->m_kategori->get_kategori($this->input->post('tenant'));
 		$i=$produk->row_array();
 		$data = array(
                'id'       => $i['barang_id'],
                'name'     => $i['barang_nama'],
                'satuan'   => $i['barang_satuan'],
                'tenant'   => $this->input->post('tenant'),
+			   'namaTenant' => $nama_tenant->kategori_nama,
                'price'	  => str_replace(",", "", $this->input->post('harjul')),
                'qty'      => $this->input->post('qty')
             );
@@ -61,7 +64,6 @@ class Penjualan extends CI_Controller{
 	}else{
 		$this->cart->insert($data);
 	}
-	
 		redirect('admin/penjualan');
 	}else{
         echo "Halaman tidak ditemukan";

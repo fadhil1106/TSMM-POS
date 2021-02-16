@@ -11,6 +11,12 @@ class M_kategori extends CI_Model{
 		return $hsl;
 	}
 
+	public function get_kategori($kode)
+	{
+		$hsl=$this->db->query("SELECT * FROM tbl_kategori where kategori_id='$kode'");
+		return $hsl->row();
+	}
+
 	function tampil_kategori(){
 		$hsl=$this->db->query("select * from tbl_kategori order by kategori_id desc");
 		return $hsl;

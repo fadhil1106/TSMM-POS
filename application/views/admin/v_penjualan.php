@@ -49,20 +49,33 @@
             <div class="col-lg-12">
             <form action="<?php echo base_url().'admin/penjualan/add_to_cart'?>" method="post">
             <table>
+                <div class="col-lg-2">
                 <tr>
                     <th>Nama Item</th>
+                    <th>Tenant</th>
                 </tr>
                 <tr>
                     <!-- <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                      -->
-                    <th>
+                    <th style="padding-right:5px;">
                         <select name="kode_brg" id="kode_brg" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Item" data-width="100%" placeholder="Pilih Item" required>
                         <?php foreach ($data->result_array() as $item) { ?>
                             <option value="<?=$item['barang_id']; ?>"><?=$item['barang_nama'];?></option>;
                         <?php } ?>
+                    </th>
+                    <th>
+                        <select name="tenant" id="tenant" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Tenant" data-width="100%" placeholder="Pilih Tenant" required>
+                        <?php foreach ($tenant->result_array() as $item) { ?>
+                            <option value="<?=$item['kategori_id']; ?>"><?=$item['kategori_nama'];?></option>;
+                        <?php } ?>
                     </th>                     
                 </tr>
+                </div>
+                <div class="col-lg-10">
                     <div id="detail_barang" style="position:absolute;">
-                    </div>
+                </div>
+            </div>
+            <?php 
+            echo array_search("40", $tenant->result_array());?>
             </table>
              </form>
             <table class="table table-bordered table-condensed" style="font-size:11px;margin-top:10px;">
@@ -87,7 +100,7 @@
                          <td><?=$items['name'];?></td>
                          <td style="text-align:center;"><?=$items['satuan'];?></td>
                          <td style="text-align:right;"><?php echo number_format($items['price']);?></td>
-                         <td style="text-align:right;"><?php echo $items['tenant'];?></td>
+                         <td style="text-align:right;"><?php echo $items['namaTenant'];?></td>
                          <td style="text-align:center;"><?php echo number_format($items['qty']);?></td>
                          <td style="text-align:right;"><?php echo number_format($items['subtotal']);?></td>
                         

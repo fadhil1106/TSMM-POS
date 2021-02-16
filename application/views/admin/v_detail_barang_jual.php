@@ -7,7 +7,6 @@
 		                    <th style="width:200px;"></th>
 		                    <th>Nama Bunga</th>
 		                    <th>Satuan</th>
-		                    <th>Tenant</th>
 		                    <th>Harga(Rp)</th>
 		                    <th>Jumlah</th>
 		                </tr>
@@ -15,7 +14,7 @@
 							<td style="width:200px;"></th>
 							<td><input type="text" name="nabar" value="<?php echo $b['barang_nama'];?>" style="width:380px;margin-right:5px;" class="form-control input-sm" readonly></td>
 		                    <td><input type="text" name="satuan" value="<?php echo $b['barang_satuan'];?>" style="width:120px;margin-right:5px;" class="form-control input-sm" readonly></td>
-		                    <td><input type="text" name="tenant" value="<?php echo $b['kategori_nama'];?>" style="width:120px;margin-right:5px;" class="form-control input-sm" readonly></td>
+		                    <!-- <td><input type="text" name="tenant" value="<?php echo $b['kategori_nama'];?>" style="width:120px;margin-right:5px;" class="form-control input-sm" readonly></td> -->
 							<td><input type="text" name="harjul" value="<?php echo number_format($b['barang_harjul']);?>" style="width:120px;margin-right:5px;text-align:right;" class="form-control input-sm"></td>
 		                    <td><input type="number" name="qty" id="qty" value="1" min="1" class="form-control input-sm" style="width:90px;margin-right:5px;" required></td>
 		                    <td><button type="submit" class="btn btn-sm btn-primary">Ok</button></td>
