@@ -32,7 +32,7 @@
 
     <!-- Page Content -->
     <div class="container">
-
+    
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
@@ -53,7 +53,13 @@
                     <th>Kode Barang</th>
                 </tr>
                 <tr>
-                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                     
+                    <!-- <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                      -->
+                    <th>
+                        <select name="kode_brg" id="kode_brg" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Item" data-width="100%" placeholder="Pilih Item" required>
+                        <?php foreach ($data->result_array() as $item) { ?>
+                            <option value="<?=$item['barang_id']; ?>"><?=$item['barang_nama'];?></option>;
+                        <?php } ?>
+                    </th>                     
                 </tr>
                     <div id="detail_barang" style="position:absolute;">
                     </div>
@@ -270,8 +276,9 @@
         $(document).ready(function(){
             //Ajax kabupaten/kota insert
             $("#kode_brg").focus();
-            $("#kode_brg").on("input",function(){
-                var kobar = {kode_brg:$(this).val()};
+            $("#kode_brg").change(function(){
+                var kobar = {kode_brg:$(this).find(':selected')[0].value};
+                console.log(kobar)
                    $.ajax({
                type: "POST",
                url : "<?php echo base_url().'admin/penjualan/get_barang';?>",
