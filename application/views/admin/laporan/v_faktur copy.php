@@ -3,7 +3,6 @@
     <title>Faktur Penjualan Barang</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css')?>"/>
-
 </head>
 <body onload="window.print()">
 <div id="laporan">
@@ -22,29 +21,37 @@
 <?php 
     $b=$data->row_array();
 ?>
-<table border="0" align="center" style="width:300px;border:none;">
+<table border="0" align="center" style="width:700px;border:none;">
         <tr>
             <th style="text-align:left;">No Faktur</th>
             <th style="text-align:left;">: <?php echo $b['jual_nofak'];?></th>
+            <th style="text-align:left;">Total</th>
+            <th style="text-align:left;">: <?php echo 'Rp '.number_format($b['jual_total']).',-';?></th>
         </tr>
         <tr>
             <th style="text-align:left;">Tanggal</th>
             <th style="text-align:left;">: <?php echo $b['jual_tanggal'];?></th>
+            <th style="text-align:left;">Tunai</th>
+            <th style="text-align:left;">: <?php echo 'Rp '.number_format($b['jual_jml_uang']).',-';?></th>
         </tr>
         <tr>
-            <th style="text-align:left;">Tenant</th>
-            <th style="text-align:left;">: <?php echo $b['nama_tenant'];?></th>
+            <th style="text-align:left;">Keterangan</th>
+            <th style="text-align:left;">: <?php echo $b['jual_keterangan'];?></th>
+            <th style="text-align:left;">Kembalian</th>
+            <th style="text-align:left;">: <?php echo 'Rp '.number_format($b['jual_kembalian']).',-';?></th>
         </tr>
 </table>
-<br>
-<table border="1" align="center" style="width:300px;margin-bottom:20px;">
+
+<table border="1" align="center" style="width:700px;margin-bottom:20px;">
 <thead>
 
     <tr>
-        <th style="width:20px;">No</th>
+        <th style="width:50px;">No</th>
         <th>Nama Barang</th>
+        <th>Satuan</th>
         <th>Harga Jual</th>
         <th>Qty</th>
+        <th>Diskon</th>
         <th>SubTotal</th>
     </tr>
 </thead>
@@ -53,16 +60,22 @@
 $no=0;
     foreach ($data->result_array() as $i) {
         $no++;
+        
         $nabar=$i['d_jual_barang_nama'];
+        $satuan=$i['d_jual_barang_satuan'];
+        
         $harjul=$i['d_jual_barang_harjul'];
         $qty=$i['d_jual_qty'];
+        $diskon=$i['d_jual_diskon'];
         $total=$i['d_jual_total'];
 ?>
     <tr>
         <td style="text-align:center;"><?php echo $no;?></td>
         <td style="text-align:left;"><?php echo $nabar;?></td>
+        <td style="text-align:center;"><?php echo $satuan;?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul);?></td>
         <td style="text-align:center;"><?php echo $qty;?></td>
+        <td style="text-align:right;"><?php echo 'Rp '.number_format($diskon);?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($total);?></td>
     </tr>
 <?php }?>
@@ -70,16 +83,16 @@ $no=0;
 <tfoot>
 
     <tr>
-        <td colspan="4" style="text-align:center;"><b>Total</b></td>
+        <td colspan="6" style="text-align:center;"><b>Total</b></td>
         <td style="text-align:right;"><b><?php echo 'Rp '.number_format($b['jual_total']);?></b></td>
     </tr>
 </tfoot>
 </table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
+<table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
         <td></td>
 </table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
+<table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
         <td align="right">Padang, <?php echo date('d-M-Y')?></td>
     </tr>

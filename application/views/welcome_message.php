@@ -23,6 +23,15 @@
 		font-weight: normal;
 	}
 
+	a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+
 	h1 {
 		color: #444;
 		background-color: transparent;

@@ -26,11 +26,11 @@ class Barang extends CI_Controller{
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');
 		$satuan=$this->input->post('satuan');
-		$harpok=str_replace(',', '', $this->input->post('harpok'));
+		$harpok=str_replace(',', '', $this->input->post('harjul'));
 		$harjul=str_replace(',', '', $this->input->post('harjul'));
-		$harjul_grosir=str_replace(',', '', $this->input->post('harjul_grosir'));
-		$stok=$this->input->post('stok');
-		$min_stok=$this->input->post('min_stok');
+		$harjul_grosir=str_replace(',', '', $this->input->post('harjul'));
+		$stok=999;
+		$min_stok=0;
 		$this->m_barang->simpan_barang($kobar,$nabar,$kat,$satuan,$harpok,$harjul,$harjul_grosir,$stok,$min_stok);
 
 		redirect('admin/barang');
@@ -44,11 +44,11 @@ class Barang extends CI_Controller{
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');
 		$satuan=$this->input->post('satuan');
-		$harpok=str_replace(',', '', $this->input->post('harpok'));
+		$harpok=str_replace(',', '', $this->input->post('harjul'));
 		$harjul=str_replace(',', '', $this->input->post('harjul'));
-		$harjul_grosir=str_replace(',', '', $this->input->post('harjul_grosir'));
-		$stok=$this->input->post('stok');
-		$min_stok=$this->input->post('min_stok');
+		$harjul_grosir=str_replace(',', '', $this->input->post('harjul'));
+		$stok=999;
+		$min_stok=0;
 		$this->m_barang->update_barang($kobar,$nabar,$kat,$satuan,$harpok,$harjul,$harjul_grosir,$stok,$min_stok);
 		redirect('admin/barang');
 	}else{

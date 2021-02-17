@@ -43,6 +43,7 @@
         <th>Qty</th>
         <th>Diskon</th>
         <th>SubTotal</th>
+        <th>Cetak Struk</th>
     </tr>
 </thead>
 <tbody>
@@ -73,6 +74,7 @@ $no=0;
         <td style="text-align:center;"><?php echo $qty;?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($diskon);?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($total);?></td>
+        <td style="text-align:center;"><a class="btn btn-primary" href="<?php echo base_url().'admin/penjualan/cetak_ulang_faktur/' . $nofak?>" target="_blank" >Cetak Struk</a></td>
     </tr>
 <?php }?>
 </tbody>
@@ -90,7 +92,7 @@ $no=0;
 </table>
 <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
-        <td align="right">Padang, <?php echo date('d-M-Y')?></td>
+        <td align="right">Makassar, <?php echo date('d-M-Y')?></td>
     </tr>
     <tr>
         <td align="right"></td>
