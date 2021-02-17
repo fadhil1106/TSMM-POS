@@ -29,7 +29,8 @@ class M_penjualan extends CI_Model{
 				'd_jual_barang_harjul'	=>	$item['price'],
 				'd_jual_qty'			=>	$item['qty'],
 				'd_jual_diskon'			=>	0,
-				'd_jual_total'			=>	$item['subtotal']
+				'd_jual_total'			=>	$item['subtotal'],
+				'nama_tenant'			=>  $item['namaTenant']
 			);
 			$this->db->insert('tbl_detail_jual',$data);
 			$this->db->query("update tbl_barang set barang_stok=barang_stok-'$item[qty]' where barang_id='$item[id]'");
@@ -75,6 +76,11 @@ class M_penjualan extends CI_Model{
 	function cetak_faktur(){
 		$nofak=$this->session->userdata('nofak');
 		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d/%m/%Y %H:%i:%s') AS jual_tanggal,jual_total,jual_jml_uang,jual_kembalian,jual_keterangan,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE jual_nofak='$nofak'");
+		return $hsl;
+	}
+
+	function cetak_kembali_faktur($nofak){
+		$hsl=$this->db->query("SELECT jual_nofak,DATE_FORMAT(jual_tanggal,'%d/%m/%Y %H:%i:%s') AS jual_tanggal,jual_total,jual_jml_uang,jual_kembalian,jual_keterangan,d_jual_barang_nama,d_jual_barang_satuan,d_jual_barang_harjul,d_jual_qty,d_jual_diskon,d_jual_total,nama_tenant FROM tbl_jual JOIN tbl_detail_jual ON jual_nofak=d_jual_nofak WHERE jual_nofak='$nofak' ORDER BY nama_tenant");
 		return $hsl;
 	}
 	

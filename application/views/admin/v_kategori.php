@@ -35,9 +35,8 @@
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Kategori
-                    <small>Barang</small>
-                    <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Tambah Kategori</a></div>
+                <h1 class="page-header">Tenant
+                    <div class="pull-right"><a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#largeModal"><span class="fa fa-plus"></span> Tambah Tenant</a></div>
                 </h1>
             </div>
         </div>
@@ -49,7 +48,7 @@
                 <thead>
                     <tr>
                         <th style="text-align:center;width:40px;">No</th>
-                        <th>Kategori</th>
+                        <th>Nama Tenant</th>
                         <th style="width:140px;text-align:center;">Aksi</th>
                     </tr>
                 </thead>
@@ -81,13 +80,13 @@
             <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel">Tambah Kategori</h3>
+                <h3 class="modal-title" id="myModalLabel">Tambah Tenant</h3>
             </div>
             <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/kategori/tambah_kategori'?>">
                 <div class="modal-body">
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Nama Kategori</label>
+                        <label class="control-label col-xs-3" >Nama Tenant</label>
                         <div class="col-xs-9">
                             <input name="kategori" class="form-control" type="text" placeholder="Input Nama Kategori..." style="width:280px;" required>
                         </div>
@@ -116,14 +115,14 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 class="modal-title" id="myModalLabel">Edit Kategori</h3>
+                        <h3 class="modal-title" id="myModalLabel">Edit Tenant</h3>
                     </div>
                     <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/kategori/edit_kategori'?>">
                         <div class="modal-body">
                             <input name="kode" type="hidden" value="<?php echo $id;?>">
 
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Kategori</label>
+                        <label class="control-label col-xs-3" >Nama Tenant</label>
                         <div class="col-xs-9">
                             <input name="kategori" class="form-control" type="text" value="<?php echo $nm;?>" style="width:280px;" required>
                         </div>
@@ -153,7 +152,7 @@
                     <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 class="modal-title" id="myModalLabel">Hapus Kategori</h3>
+                        <h3 class="modal-title" id="myModalLabel">Hapus Tenant</h3>
                     </div>
                     <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/kategori/hapus_kategori'?>">
                         <div class="modal-body">

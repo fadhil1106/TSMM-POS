@@ -36,6 +36,7 @@ class Laporan extends CI_Controller{
 		$x['data']=$this->m_laporan->get_data_penjualan();
 		$x['jml']=$this->m_laporan->get_total_penjualan();
 		$this->load->view('admin/laporan/v_lap_penjualan',$x);
+
 	}
 	function lap_penjualan_pertanggal(){
 		$tanggal=$this->input->post('tgl');

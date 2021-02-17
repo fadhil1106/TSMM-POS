@@ -65,7 +65,7 @@
                     <th>
                         <select name="tenant" id="tenant" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Tenant" data-width="100%" placeholder="Pilih Tenant" required>
                         <?php foreach ($tenant->result_array() as $item) { ?>
-                            <option value="<?=$item['kategori_id']; ?>"><?=$item['kategori_nama'];?></option>;
+                            <option value="<?=$item['kategori_id']; ?>" ><?=$item['kategori_nama'];?></option>;
                         <?php } ?>
                     </th>                     
                 </tr>
