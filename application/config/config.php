@@ -22,7 +22,7 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://tsmm-pos.test/';
+$config['base_url'] = 'http://172.16.14.8/tsmm-pos/';
 
 /*
 |--------------------------------------------------------------------------
