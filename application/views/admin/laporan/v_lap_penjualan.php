@@ -14,7 +14,7 @@
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN PENJUALAN BARANG</h4></center><br/></td>
+    <td colspan="2" style="width:800px;"><center><h4>LAPORAN PENJUALAN BARANG</h4></center><br/></td>
 </tr>
                        
 </table>
@@ -31,12 +31,12 @@
         <th style="width:50px;">No</th>
         <th>No Faktur</th>
         <th>Tanggal</th>
+        <th>Tenant</th>
         <th>Kode Barang</th>
         <th>Nama Barang</th>
         <th>Satuan</th>
         <th>Harga Jual</th>
         <th>Qty</th>
-        <th>Diskon</th>
         <th>Total</th>
     </tr>
 </thead>
@@ -47,24 +47,24 @@ $no=0;
         $no++;
         $nofak=$i['jual_nofak'];
         $tgl=$i['jual_tanggal'];
+        $nama_tenant=$i['nama_tenant'];
         $barang_id=$i['d_jual_barang_id'];
         $barang_nama=$i['d_jual_barang_nama'];
         $barang_satuan=$i['d_jual_barang_satuan'];
         $barang_harjul=$i['d_jual_barang_harjul'];
         $barang_qty=$i['d_jual_qty'];
-        $barang_diskon=$i['d_jual_diskon'];
         $barang_total=$i['d_jual_total'];
 ?>
     <tr>
         <td style="text-align:center;"><?php echo $no;?></td>
         <td style="padding-left:5px;"><?php echo $nofak;?></td>
         <td style="text-align:center;"><?php echo $tgl;?></td>
+        <td style="text-align:left;"><?php echo $nama_tenant;?></td>
         <td style="text-align:center;"><?php echo $barang_id;?></td>
         <td style="text-align:left;"><?php echo $barang_nama;?></td>
         <td style="text-align:left;"><?php echo $barang_satuan;?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_harjul);?></td>
         <td style="text-align:center;"><?php echo $barang_qty;?></td>
-        <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_diskon);?></td>
         <td style="text-align:right;"><?php echo 'Rp '.number_format($barang_total);?></td>
     </tr>
 <?php }?>
@@ -85,7 +85,7 @@ $no=0;
 </table>
 <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
-        <td align="right">Padang, <?php echo date('d-M-Y')?></td>
+        <td align="right">Makassar, <?php echo date('d-M-Y')?></td>
     </tr>
     <tr>
         <td align="right"></td>

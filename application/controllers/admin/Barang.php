@@ -11,7 +11,7 @@ class Barang extends CI_Controller{
 		$this->load->library('barcode');
 	}
 	function index(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$data['data']=$this->m_barang->tampil_barang();
 		$data['kat']=$this->m_kategori->tampil_kategori();
 		$data['kat2']=$this->m_kategori->tampil_kategori();

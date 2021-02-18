@@ -1,9 +1,8 @@
 Soucode ini dibangun dan dirancang oleh:
 
-Programmer: M Fikri Setiadi
-Tahun 	  : 2017
-Website   : www.mfikri.com 
-Email     : setiadi@mfikri.com
+Programmer: TSM Makassar
+Tahun 	  : 2021
+Website   : tsm-makassar.com 
 Lisensi   : OpenSource
 
 NB: Anda boleh menyebarluaskan dan mengembangkan sourcode ini!

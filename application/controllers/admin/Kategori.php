@@ -9,7 +9,7 @@ class Kategori extends CI_Controller{
 		$this->load->model('m_kategori');
 	}
 	function index(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$data['data']=$this->m_kategori->tampil_kategori();
 		$this->load->view('admin/v_kategori',$data);
 	}else{

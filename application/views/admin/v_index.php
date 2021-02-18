@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Produk By Mfikri.com">
-    <meta name="author" content="M Fikri Setiadi">
+    <meta name="author" content="TSM Makassar">
 
     <title>Welcome To Point of Sale Apps</title>
 
@@ -85,7 +85,7 @@
             <?php if($h=='2'){ ?> 
             <div class="col-md-3 portfolio-item">
                 <div class="menu-item blue" style="height:150px;">
-                     <a href="#" data-toggle="modal">
+                     <a href="<?php echo base_url().'admin/penjualan'?>" data-toggle="modal">
                            <i class="fa fa-shopping-cart"></i>
                             <p style="text-align:left;font-size:14px;padding-left:5px;">Penjualan</p>
                       </a>
@@ -101,7 +101,7 @@
             </div>
             <div class="col-md-3 portfolio-item">
                 <div class="menu-item color" style="height:150px;">
-                     <a href="#" data-toggle="modal">
+                     <a href="<?php echo base_url().'admin/kategori'?>" data-toggle="modal">
                            <i class="fa fa-sitemap"></i>
                             <p style="text-align:left;font-size:14px;padding-left:5px;">Kategori</p>
                       </a>
@@ -109,7 +109,7 @@
             </div>
             <div class="col-md-3 portfolio-item">
                 <div class="menu-item blue" style="height:150px;">
-                     <a href="#" data-toggle="modal">
+                     <a href="<?php echo base_url().'admin/laporan'?>" data-toggle="modal">
                            <i class="fa fa-bar-chart"></i>
                             <p style="text-align:left;font-size:14px;padding-left:5px;">Laporan</p>
                       </a>

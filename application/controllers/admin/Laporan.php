@@ -14,7 +14,7 @@ class Laporan extends CI_Controller{
 		$this->load->model('m_laporan');
 	}
 	function index(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$data['data']=$this->m_barang->tampil_barang();
 		$data['kat']=$this->m_kategori->tampil_kategori();
 		$data['jual_bln']=$this->m_laporan->get_bulan_jual();

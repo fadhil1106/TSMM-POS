@@ -14,7 +14,7 @@
 
 <table border="0" align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:0px;">
 <tr>
-    <td colspan="2" style="width:800px;paddin-left:20px;"><center><h4>LAPORAN PENJUALAN BARANG</h4></center><br/></td>
+    <td colspan="2" style="width:800px;"><center><h4>LAPORAN PENJUALAN BARANG</h4></center><br/></td>
 </tr>
                        
 </table>
@@ -36,12 +36,12 @@
         <th style="width:50px;">No</th>
         <th>No Faktur</th>
         <th>Tanggal</th>
+        <th>Nama Tenant</th>
         <th>Kode Barang</th>
         <th>Nama Barang</th>
         <th>Satuan</th>
         <th>Harga Jual</th>
         <th>Qty</th>
-        <th>Diskon</th>
         <th>SubTotal</th>
         <th>Cetak Struk</th>
     </tr>
@@ -55,6 +55,7 @@ $no=0;
         $tgl=$i['jual_tanggal'];
         $kobar=$i['d_jual_barang_id'];
         
+        $tenant=$i['nama_tenant'];
         $nabar=$i['d_jual_barang_nama'];
         $satuan=$i['d_jual_barang_satuan'];
         
