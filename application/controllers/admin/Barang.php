@@ -21,7 +21,7 @@ class Barang extends CI_Controller{
     }
 	}
 	function tambah_barang(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kobar=$this->m_barang->get_kobar();
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');
@@ -39,7 +39,7 @@ class Barang extends CI_Controller{
     }
 	}
 	function edit_barang(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kobar=$this->input->post('kobar');
 		$nabar=$this->input->post('nabar');
 		$kat=$this->input->post('kategori');

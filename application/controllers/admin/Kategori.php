@@ -17,7 +17,7 @@ class Kategori extends CI_Controller{
     }
 	}
 	function tambah_kategori(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kat=$this->input->post('kategori');
 		$this->m_kategori->simpan_kategori($kat);
 		redirect('admin/kategori');
@@ -26,7 +26,7 @@ class Kategori extends CI_Controller{
     }
 	}
 	function edit_kategori(){
-	if($this->session->userdata('akses')=='1'){
+	if($this->session->userdata('akses')=='1' || $this->session->userdata('akses')=='2'){
 		$kode=$this->input->post('kode');
 		$kat=$this->input->post('kategori');
 		$this->m_kategori->update_kategori($kode,$kat);

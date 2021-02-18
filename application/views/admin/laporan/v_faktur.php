@@ -22,10 +22,10 @@
 <?php 
     $b=$data->row_array();
 ?>
-<h1 style="text-align:center">Transstudio Mall Makassar</h1>
+<h2 style="text-align:center">Transstudio Mall Makassar</h2>
 <table border="0" align="center" style="border:none;">
         <tr>
-            <th style="text-align:left;padding-right:10px">No Faktur</th>
+            <th style="text-align:left;padding-right:10px">No Resi</th>
             <th style="text-align:left;padding-right:10px">: <?php echo $b['jual_nofak'];?></th>
         </tr>
         <tr>
@@ -38,12 +38,11 @@
         </tr>
 </table>
 <br>
-<table border="0" align="center" class="items" style="margin-bottom:20px;">
+<table border="0" align="center" class="items" style="width:250px;margin-bottom:20px;">
 <thead>
     <tr>
-        <th>Nama Barang</th>
-        <th>Harga Jual</th>
-        <th>Qty</th>
+        <th style="text-align: left;">Nama Barang</th>
+        <th style="width: 50px;">Qty</th>
         <th>SubTotal</th>
     </tr>
 </thead>
@@ -58,25 +57,20 @@ $no=0;
 ?>
     <tr>
         <td><?php echo $nabar;?></td>
-        <td><?php echo 'Rp.'.number_format($harjul);?></td>
-        <td><?php echo $qty;?></td>
-        <td><?php echo 'Rp.'.number_format($total);?></td>
+        <td style="text-align: center;"><?php echo $qty;?></td>
+        <td style="text-align: right;"><?php echo 'Rp.'.number_format($total);?></td>
     </tr>
 <?php }?>
 </tbody>
 <tfoot>
 
     <tr>
-        <td colspan="3" style="text-align:center;"><b>Total</b></td>
+        <td colspan="2" style="text-align:center;"><b>Total</b></td>
         <td style="text-align:right;"><b><?php echo 'Rp.'.number_format($b['jual_total']);?></b></td>
     </tr>
 </tfoot>
 </table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
-    <tr>
-        <td></td>
-</table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
+<table align="center" style="width:250px; border:none;margin-top:2px;">
     <tr>
         <td align="right">Makassar, <?php echo date('d-M-Y')?></td>
     </tr>
@@ -85,7 +79,7 @@ $no=0;
     </tr>
    
     <tr>
-    <td><br/><br/><br/><br/></td>
+    <td><br/></td>
     </tr>    
     <tr>
         <td align="right">( <?php echo $this->session->userdata('nama');?> )</td>
@@ -94,14 +88,14 @@ $no=0;
         <td align="center"></td>
     </tr>
 </table>
-<table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
+<!-- <table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
         <th><br/><br/></th>
     </tr>
     <tr>
         <th align="left"></th>
     </tr>
-</table>
+</table> -->
 </div>
 </body>
 </html>

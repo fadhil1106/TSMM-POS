@@ -1,6 +1,6 @@
 body{
-        font-family: arial,sans-serif;
-		font-size:13px;
+        font-family: Arial;
+		font-size:12px;
 		margin:0px;
 		}
 		#laporan{
@@ -9,7 +9,7 @@ body{
 		}
 		#laporan table{
 		border-collapse:collapse;
-		font-size:13px;
+		font-size:14px;
 		width: fit-content;
 		}
 		#laporan .items tr { 
@@ -20,11 +20,13 @@ body{
 		background:F1E7E8;
 		font-weight:bold;
 		vertical-align:middle;
+		padding-left: 2px;
+		padding-right: 2px;
 		}
 
 		#laporan table td{
 		background:c8bfbf;
-		padding: 6px;
+		padding: 8px;
 		}
 
 		#laporan table bp{
@@ -40,3 +42,6 @@ body{
 		.nongaris{
 			border: none;
 		}
+	
+
+

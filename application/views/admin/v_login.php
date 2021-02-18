@@ -34,11 +34,6 @@
 			                                
 			            </div>
 			        </div>
-
-			        <div class="already">
-			            <p>Username: admin<br/> Password: admin</p>
-			            
-			        </div>
 			    </div>
 			</div>
 		</div>
