@@ -21,11 +21,8 @@
 </table> -->
 <?php 
     $b=$data->row_array();
-    var_dump($data->result_array());
-    $tenantName = "";
-    foreach ($data->result_array() as $i) {
-        if ($tenantName != $i['nama_tenant']) {
-            
+    $tenantName = array_unique(array_column($data->result_array(),'nama_tenant'));
+    foreach ($tenantName as $tenant) {       
 ?>
 <h1 style="text-align:center">Transstudio Mall Makassar</h1>
 <table border="0" align="center" style="border:none;">
@@ -39,13 +36,11 @@
         </tr>
         <tr>
             <th style="text-align:left;padding-right:10px">Tenant</th>
-            <th style="text-align:left;padding-right:10px">: <?php echo $i['nama_tenant'];?></th>
+            <th style="text-align:left;padding-right:10px">: <?php echo $tenant;?></th>
         </tr>
 </table>
 <br>
-        <?php }?>
 <table border="0" align="center" class="items" style="margin-bottom:20px;">
-        <?php if ($tenantName != $i['nama_tenant']) { ?>
 <thead>
     <tr>
         <th>Nama Barang</th>
@@ -54,13 +49,14 @@
         <th>SubTotal</th>
     </tr>
 </thead>
-        <?php }?>
 <tbody>
 <?php
-        $nabar=$i['d_jual_barang_nama'];
-        $harjul=$i['d_jual_barang_harjul'];
-        $qty=$i['d_jual_qty'];
-        $total=$i['d_jual_total'];
+    foreach ($data->result_array() as $i) {
+        if ($i['nama_tenant'] == $tenant) {
+            $nabar=$i['d_jual_barang_nama'];
+            $harjul=$i['d_jual_barang_harjul'];
+            $qty=$i['d_jual_qty'];
+            $total=$i['d_jual_total'];
 ?>
     <tr>
         <td><?php echo $nabar;?></td>
@@ -68,7 +64,7 @@
         <td><?php echo $qty;?></td>
         <td><?php echo 'Rp.'.number_format($total);?></td>
     </tr>
-
+    <?php }} ?>
 </tbody>
 <tfoot>
 
@@ -78,7 +74,6 @@
     </tr>
 </tfoot>
 </table>
-<?php $tenantName = $i['nama_tenant']; }?>
 <table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
         <td></td>
@@ -109,6 +104,7 @@
         <th align="left"></th>
     </tr>
 </table>
+<?php } ?>
 </div>
 </body>
 </html>
