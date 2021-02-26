@@ -66,6 +66,14 @@
                 </div> 
             </div>
             <div class="col-md-3 portfolio-item">
+                <div class="menu-item red" style="height:150px;">
+                     <a href="<?php echo base_url().'admin/retur'?>" data-toggle="modal">
+                           <i class="fa fa-refresh"></i>
+                            <p style="text-align:left;font-size:14px;padding-left:5px;">Void</p>
+                      </a>
+                </div> 
+            </div>
+            <div class="col-md-3 portfolio-item">
                 <div class="menu-item color" style="height:150px;">
                      <a href="<?php echo base_url().'admin/kategori'?>" data-toggle="modal">
                            <i class="fa fa-sitemap"></i>

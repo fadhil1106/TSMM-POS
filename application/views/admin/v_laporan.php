@@ -82,6 +82,14 @@
 
                     <tr>
                         <td style="text-align:center;vertical-align:middle">4</td>
+                        <td style="vertical-align:middle;">Laporan Penjualan PerTanggal byTenant</td>
+                        <td style="text-align:center;">
+                            <a class="btn btn-sm btn-default" href="#lap_jual_pertenant" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align:center;vertical-align:middle">5</td>
                         <td style="vertical-align:middle;">Laporan Penjualan PerTanggal</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_jual_pertanggal" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
@@ -89,7 +97,7 @@
                     </tr>
 
                     <tr>
-                        <td style="text-align:center;vertical-align:middle">5</td>
+                        <td style="text-align:center;vertical-align:middle">6</td>
                         <td style="vertical-align:middle;">Laporan Penjualan PerBulan</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_jual_perbulan" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
@@ -97,7 +105,7 @@
                     </tr>
 
                     <tr>
-                        <td style="text-align:center;vertical-align:middle">6</td>
+                        <td style="text-align:center;vertical-align:middle">7</td>
                         <td style="vertical-align:middle;">Laporan Penjualan PerTahun</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_jual_pertahun" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
@@ -105,7 +113,7 @@
                     </tr>
 
                      <tr>
-                        <td style="text-align:center;vertical-align:middle">7</td>
+                        <td style="text-align:center;vertical-align:middle">8</td>
                         <td style="vertical-align:middle;">Laporan Laba/Rugi</td>
                         <td style="text-align:center;">
                             <a class="btn btn-sm btn-default" href="#lap_laba_rugi" data-toggle="modal"><span class="fa fa-print"></span> Print</a>
@@ -117,6 +125,40 @@
             </div>
         </div>
         <!-- /.row -->
+        <!-- ============ MODAL ADD =============== -->
+        <div class="modal fade" id="lap_jual_pertenant" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 class="modal-title" id="myModalLabel">Pilih Tanggal</h3>
+            </div>
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'admin/laporan/lap_penjualan_pertenant'?>" target="_blank">
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" >Tanggal</label>
+                        <div class="col-xs-9">
+                            <div class='input-group date' id='datepicker1' style="width:300px;">
+                                <input type='text' name="tgl" class="form-control" value="" placeholder="Tanggal..." required/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                           
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
+                    <button class="btn btn-info"><span class="fa fa-print"></span> Cetak</button>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
         <!-- ============ MODAL ADD =============== -->
         <div class="modal fade" id="lap_jual_pertanggal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
             <div class="modal-dialog">
@@ -139,8 +181,6 @@
                             </div>
                         </div>
                     </div>
-                           
-
                 </div>
 
                 <div class="modal-footer">
@@ -296,6 +336,9 @@
                 });
                 
                 $('#datepicker').datetimepicker({
+                    format: 'YYYY-MM-DD',
+                });
+                $('#datepicker1').datetimepicker({
                     format: 'YYYY-MM-DD',
                 });
                 $('#datepicker2').datetimepicker({

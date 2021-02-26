@@ -38,6 +38,12 @@ class Laporan extends CI_Controller{
 		$this->load->view('admin/laporan/v_lap_penjualan',$x);
 
 	}
+	function lap_penjualan_pertenant(){
+		$tanggal=$this->input->post('tgl');
+		$x['jml']=$this->m_laporan->get_data__total_jual_pertanggal($tanggal);
+		$x['data']=$this->m_laporan->get_data_jual_pertanggal($tanggal);
+		$this->load->view('admin/laporan/v_lap_jual_pertenant',$x);
+	}
 	function lap_penjualan_pertanggal(){
 		$tanggal=$this->input->post('tgl');
 		$x['jml']=$this->m_laporan->get_data__total_jual_pertanggal($tanggal);

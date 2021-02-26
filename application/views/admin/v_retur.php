@@ -37,9 +37,8 @@
         <div class="row">
             <div class="col-lg-12">
             <center><?php echo $this->session->flashdata('msg');?></center>
-                <h1 class="page-header">Retur
-                    <small>Penjualan (Grosir)</small>
-                    <a href="#" data-toggle="modal" data-target="#largeModal" class="pull-right"><small>Bantuan?</small></a>
+                <h1 class="page-header">Void
+                    <small>Penjualan</small>
                 </h1>
             </div>
         </div>
@@ -47,13 +46,14 @@
         <!-- Projects Row -->
         <div class="row">
             <div class="col-lg-12">
-            <form action="<?php echo base_url().'admin/retur/simpan_retur'?>" method="post">
+            <form action="<?php echo base_url().'admin/retur/cari_penjualan'?>" method="post">
             <table>
                 <tr>
-                    <th>Kode Barang</th>
+                    <th>Nomor Resi</th>
                 </tr>
                 <tr>
-                    <th><input type="text" name="kode_brg" id="kode_brg" class="form-control input-sm"></th>                     
+                    <th><input type="text" name="nofak" id="nofak" class="form-control input-sm"></th>  
+                    <th style="padding-left: 10px;"><button type="submit" class="btn btn-sm btn-info" title="Pilih"><span class="fa fa-search"></span> Cari </button></th>
                 </tr>
                     <div id="detail_barang" style="position:absolute;">
                     </div>
@@ -63,114 +63,53 @@
             <table class="table table-bordered table-condensed" style="font-size:11px;margin-top:10px;" id="mydata2">
                 <thead>
                     <tr>
+                        <th>Nomor Resi</th>
                         <th>Tanggal</th>
+                        <th>Nama Tenant</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
                         <th style="text-align:center;">Satuan</th>
                         <th style="text-align:center;">Harga(Rp)</th>
                         <th style="text-align:center;">Jumlah</th>
                         <th style="text-align:center;">Subtotal(Rp)</th>
-                        <th style="text-align:center;">Keterangan</th>
-                        <th style="width:90px;text-align:center;">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     
                     <?php 
-                        foreach ($retur->result_array() as $items): ?>
-                   
+                        if (isset($data)) {
+                        foreach ($data->result_array() as $items): ?>
                     <tr>
-                         <td><?php echo $items['retur_tanggal'];?></td>
-                         <td><?php echo $items['retur_barang_id'];?></td>
-                         <td style="text-align:left;"><?php echo $items['retur_barang_nama'];?></td>
-                        <td style="text-align:center;"><?php echo $items['retur_barang_satuan'];?></td>
-                        <td style="text-align:center;"><?php echo number_format($items['retur_harjul']);?></td>
-                        <td style="text-align:center;"><?php echo $items['retur_qty'];?></td>
-                        <td style="text-align:center;"><?php echo number_format($items['retur_subtotal']);?></td>
-                        <td style="text-align:center;"><?php echo $items['retur_keterangan'];?></td>
-                         <td style="text-align:center;"><a href="<?php echo base_url().'admin/retur/hapus_retur/'.$items['retur_id'];?>" class="btn btn-warning btn-xs"><span class="fa fa-close"></span> Batal</a></td>
+                        <td><?php echo $items['jual_nofak']; ?></td> 
+                        <td><?php echo $items['jual_tanggal'];?></td>
+                        <td><?php echo $items['nama_tenant'];?></td>
+                        <td><?php echo $items['d_jual_barang_id'];?></td>
+                        <td style="text-align:left;"><?php echo $items['d_jual_barang_nama'];?></td>
+                        <td style="text-align:center;"><?php echo $items['d_jual_barang_satuan'];?></td>
+                        <td style="text-align:center;"><?php echo number_format($items['d_jual_barang_harjul']);?></td>
+                        <td style="text-align:center;"><?php echo $items['d_jual_qty'];?></td>
+                        <td style="text-align:center;"><?php echo number_format($items['d_jual_total']);?></td>
                     </tr>
                     
-                    <?php endforeach; ?>
+                    <?php endforeach; } ?>
                 </tbody>
             </table>
-            
-            <hr/>
-        </div>
-        <!-- /.row -->
-         <!-- ============ MODAL ADD =============== -->
-        <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 class="modal-title" id="myModalLabel">Data Barang</h3>
-            </div>
-                <div class="modal-body" style="overflow:scroll;height:500px;">
-
-                  <table class="table table-bordered table-condensed" style="font-size:11px;" id="mydata">
-                    <thead>
-                        <tr>
-                            <th style="text-align:center;width:40px;">No</th>
-                            <th style="width:120px;">Kode Barang</th>
-                            <th style="width:240px;">Nama Barang</th>
-                            <th>Satuan</th>
-                            <th style="width:100px;">Harga (Grosir)</th>
-                            <th>Stok</th>
-                            <th style="width:100px;text-align:center;">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <?php 
-                        $no=0;
-                        foreach ($data->result_array() as $a):
-                            $no++;
-                            $id=$a['barang_id'];
-                            $nm=$a['barang_nama'];
-                            $satuan=$a['barang_satuan'];
-                            $harpok=$a['barang_harpok'];
-                            $harjul=$a['barang_harjul'];
-                            $harjul_grosir=$a['barang_harjul_grosir'];
-                            $stok=$a['barang_stok'];
-                            $min_stok=$a['barang_min_stok'];
-                            $kat_id=$a['barang_kategori_id'];
-                            $kat_nama=$a['kategori_nama'];
-                    ?>
-                        <tr>
-                            <td style="text-align:center;"><?php echo $no;?></td>
-                            <td><?php echo $id;?></td>
-                            <td><?php echo $nm;?></td>
-                            <td style="text-align:center;"><?php echo $satuan;?></td>
-                            <td style="text-align:right;"><?php echo 'Rp '.number_format($harjul_grosir);?></td>
-                            <td style="text-align:center;"><?php echo $stok;?></td>
-                            <td style="text-align:center;">
-                            <form action="<?php echo base_url().'admin/retur/simpan_retur'?>" method="post">
-                            <input type="hidden" name="kode_brg" value="<?php echo $id?>">
-                            <input type="hidden" name="nabar" value="<?php echo $nm;?>">
-                            <input type="hidden" name="satuan" value="<?php echo $satuan;?>">
-                            <input type="hidden" name="harjul" value="<?php echo number_format($harjul_grosir);?>">
-                            <input type="hidden" name="qty" value="1" required>
-                            <input type="hidden" name="keterangan" value="Rusak" required>
-                                <button type="submit" class="btn btn-xs btn-info" title="Pilih"><span class="fa fa-refresh"></span> Retur</button>
-                            </form>
-                            </td>
-                        </tr>
-                    <?php endforeach;?>
-                    </tbody>
-                </table>          
-
-                </div>
-
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
-                    
-                </div>
-            </div>
             </div>
         </div>
-
-        <!--END MODAL-->
-
+        <?php
+        if (isset($data)) { ?>
+        <div class="row">
+            <div class="col-12" style="margin: 15px;">
+                <form action="<?php echo base_url().'admin/retur/void_penjualan'?>" method="POST">
+                    <label for="keterangan">Keterangan</label>
+                    <input type="text" name="keterangan" id="keterangan" class="form-control input-sm">
+                    <br>
+                    <input type="hidden" value="<?php echo $nofak;?>" name="nofak" id="nofak" class="form-control input-sm">
+                    <button type="submit" class="btn btn-xl btn-danger" title="Pilih"><span class="fa fa-trash"></span> Hapus </button>     
+                </form>
+            </div>  
+        </div>
+        <?php } ?>
         <hr>
 
         <!-- Footer -->
@@ -247,31 +186,6 @@
             });
         });
     </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            //Ajax kabupaten/kota insert
-            $("#kode_brg").focus();
-            $("#kode_brg").on("input",function(){
-                var kobar = {kode_brg:$(this).val()};
-                   $.ajax({
-               type: "POST",
-               url : "<?php echo base_url().'admin/retur/get_barang';?>",
-               data: kobar,
-               success: function(msg){
-               $('#detail_barang').html(msg);
-               }
-            });
-            }); 
-
-            $("#kode_brg").keypress(function(e){
-                if(e.which==13){
-                    $("#jumlah").focus();
-                }
-            });
-        });
-    </script>
-    
-    
 </body>
 
 </html>

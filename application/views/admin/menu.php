@@ -25,7 +25,7 @@
                     </li>
                     <!--ending dropdown-->
                     <li>
-                        <a href="<?php echo base_url().'admin/retur'?>"><span class="fa fa-refresh"></span> Retur</a>
+                        <a href="<?php echo base_url().'admin/retur'?>"><span class="fa fa-refresh"></span> Void</a>
                     </li>
                     <li>
                         <a href="<?php echo base_url().'admin/grafik'?>"><span class="fa fa-line-chart"></span> Grafik</a>
@@ -43,9 +43,6 @@
                         </ul>
                     </li>
                     <!--ending dropdown-->
-                    <li>
-                        <a href="<?php echo base_url().'admin/retur'?>"><span class="fa fa-refresh"></span> Retur</a>
-                    </li>
                     <?php }?>
                      <li>
                         <a href="<?php echo base_url().'administrator/logout'?>"><span class="fa fa-sign-out"></span> Logout</a>

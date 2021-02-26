@@ -40,7 +40,7 @@
         </tr>
 </table>
 <br>
-<table border="0" align="center" class="items" style="margin-bottom:20px;">
+<table border="0" align="center" class="items" style="margin-bottom:5px;">
 <thead>
     <tr>
         <th>Nama Barang</th>
@@ -51,12 +51,14 @@
 </thead>
 <tbody>
 <?php
+    $subTotal = 0;
     foreach ($data->result_array() as $i) {
         if ($i['nama_tenant'] == $tenant) {
             $nabar=$i['d_jual_barang_nama'];
             $harjul=$i['d_jual_barang_harjul'];
             $qty=$i['d_jual_qty'];
             $total=$i['d_jual_total'];
+            $subTotal+=$total;
 ?>
     <tr>
         <td><?php echo $nabar;?></td>
@@ -67,18 +69,14 @@
     <?php }} ?>
 </tbody>
 <tfoot>
-
     <tr>
         <td colspan="3" style="text-align:center;"><b>Total</b></td>
-        <td style="text-align:right;"><b><?php echo 'Rp.'.number_format($b['jual_total']);?></b></td>
+        <!-- <td style="text-align:right;"><b><?php echo 'Rp.'.number_format($b['jual_total']);?></b></td> -->
+        <td style="text-align:right;"><b><?php echo 'Rp.'.number_format($subTotal);?></b></td>
     </tr>
 </tfoot>
 </table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
-    <tr>
-        <td></td>
-</table>
-<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:20px;">
+<table align="center" style="width:300px; border:none;margin-top:5px;margin-bottom:5px;">
     <tr>
         <td align="right">Makassar, <?php echo date('d-M-Y')?></td>
     </tr>
@@ -87,7 +85,7 @@
     </tr>
    
     <tr>
-    <td><br/><br/><br/><br/></td>
+    <td></td>
     </tr>    
     <tr>
         <td align="right">( <?php echo $this->session->userdata('nama');?> )</td>
@@ -96,7 +94,7 @@
         <td align="center"></td>
     </tr>
 </table>
-<table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:20px;">
+<table align="center" style="width:700px; border:none;margin-top:5px;margin-bottom:5px;">
     <tr>
         <th><br/><br/></th>
     </tr>
